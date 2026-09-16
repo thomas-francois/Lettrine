@@ -1,0 +1,99 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>lettrine</title>
+<script type="importmap">
+  { "imports": { "lettrine": "../src/index.js" } }
+</script>
+
+<style>
+  html { background: #eee }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 2.5rem;
+    box-sizing: border-box;
+    font: 1.02rem/1.55 Georgia, 'Times New Roman', serif;
+  }
+
+  .sheet {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(60rem, 100%);
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px #0000001a, 0 12px 40px -12px #00000033;
+  }
+
+  .cell {
+    display: grid;
+    align-content: center;
+    padding: 0.5rem 2.5rem;
+    min-height: 11rem;
+  }
+  .cell p { margin: 0 }
+
+  @media (max-width: 46rem) {
+    .sheet { grid-template-columns: minmax(0, 1fr) }
+  }
+
+  /* 1 — plain white, everything left at its default */
+  .classic { background: #fdfcfa; color: #191919 }
+
+  /* 2 — paper, taller ornament in sepia with a wider gutter */
+  .paper {
+    color: #3c3327;
+    background-color: #ece2cd;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+    --lettrine-lines: 4;
+    --lettrine-color: #8a4a1c;
+    --lettrine-gap-right: .9em;
+  }
+
+  /* 3 — dark, gilt ornament on a lighter body colour */
+  .night {
+    color: #b9b5ac;
+    background: radial-gradient(at 30% 0%, #1e222a 0, #12141a 70%);
+    --lettrine-color: #efd08c;
+  }
+
+  /* 4 — variant 0: the letter itself, reversed out of a solid panel */
+  .block {
+    color: #2b342c;
+    background: #dde4dc;
+    --lettrine-lines: 2;
+    --lettrine-color: #2f4a33;
+    --lettrine-gap-bottom: .35em;
+    --lettrine-gap-right: .1em;
+    font-size: 1.25em;
+    font-family: serif;
+  }
+</style>
+
+<div class="sheet">
+  <div class="cell classic">
+    <p data-lettrine="A2">Arms and the man I sing, who, forced by fate and haughty Juno's
+    unrelenting hate, expelled and exiled, left the Trojan shore. Long labours, both by sea
+    and land, he bore.</p>
+  </div>
+
+  <div class="cell paper">
+    <p data-lettrine="M1">Midway upon the journey of our life I found myself within a forest
+    dark, for the straightforward pathway had been lost.</p>
+  </div>
+
+  <div class="cell night">
+    <p data-lettrine="N3">Night had fallen over the quay, and the lamps burned low along the
+    water, each one doubled in the black of the harbour and drawn out by the swell.</p>
+  </div>
+
+  <div class="cell block">
+    <p data-lettrine="S0">Snow began to fall at dusk, thin and unhurried, over a town already
+    asleep and long past caring what the weather chose to do with the night.</p>
+  </div>
+</div>
+
+<script type="module">
+  import 'lettrine';
+</script>

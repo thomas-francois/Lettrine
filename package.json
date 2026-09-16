@@ -1,0 +1,28 @@
+{
+  "name": "lettrine",
+  "version": "1.0.0",
+  "description": "Drop-cap ornaments from real books, applied to any element",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./static": "./src/static.js",
+    "./glyphs": "./src/glyphs.js"
+  },
+  "files": [
+    "src/"
+  ],
+  "sideEffects": [
+    "./src/index.js"
+  ],
+  "keywords": [
+    "drop-cap",
+    "dropcap",
+    "lettrine",
+    "initial",
+    "typography",
+    "svg"
+  ],
+  "author": "Thomas FRANCOIS",
+  "license": "MIT"
+}

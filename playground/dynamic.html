@@ -1,0 +1,54 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>lettrine — dynamic</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+  { "imports": { "lettrine": "../src/index.js" } }
+</script>
+
+<nav><a href="dynamic.html" aria-current="page">Dynamic</a><a href="static.html">Static</a><a href="demo.html">Demo</a></nav>
+
+<h1>Dynamic — <code>import 'lettrine'</code></h1>
+<p class="lede">Glyphs are fetched as they are needed. Nothing to set up: the import scans the
+page and keeps watching, so text added or changed later is decorated too.</p>
+
+<button id="swap">Change the last paragraph's text</button>
+
+<article id="prose">
+  <p data-lettrine>Arms and the man I sing, who, forced by fate and haughty Juno's unrelenting
+  hate, expelled and exiled, left the Trojan shore. Long labours, both by sea and land, he
+  bore, and in the doubtful war, before he won the Latian realm.</p>
+
+  <p data-lettrine="3" class="tinted">Zealously the scribe worked through the night. This one
+  pins variant 3 and tints the ornament with <code>--lettrine-color</code>.</p>
+
+  <p data-lettrine="M1" class="reversed">Midway upon the journey of our life I found myself
+  within a forest dark. This one names the glyph outright and reverses it out of a
+  <code>--lettrine-background</code>.</p>
+
+  <p data-lettrine class="tall roomy">« Élan » — the guillemet is swallowed and the accent
+  stripped, and this ornament is four lines tall with a wider gutter.</p>
+
+  <p data-lettrine>¿Qué tal? Inverted punctuation is handled the same way. 42 rue du
+  Cherche-Midi would be left alone, since it doesn't start with a letter.</p>
+
+  <p data-lettrine="P0">Plain is variant <code>0</code>: no ornament, just the letter at the
+  same size and on the same float, so it lines up with the ornamental ones. It has to be
+  named — <code>P0</code> here — and nothing is fetched for it.</p>
+
+  <p data-lettrine="V0" class="tinted">Another one, tinted, to show it takes the same custom
+  properties as an ornament.</p>
+
+  <p data-lettrine id="live">Hello — press the button and watch this ornament follow.</p>
+</article>
+
+<script type="module">
+  import 'lettrine';
+
+  const live = document.getElementById('live');
+  document.getElementById('swap').addEventListener('click', () => {
+    live.textContent = live.textContent.startsWith('Hello')
+      ? 'Good morning — the observer redecorated this without being asked.'
+      : 'Hello — press the button and watch this ornament follow.';
+  });
+</script>

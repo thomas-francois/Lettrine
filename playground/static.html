@@ -1,0 +1,41 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>lettrine — static</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+  { "imports": { "lettrine/static": "../src/static.js", "lettrine/glyphs": "../src/glyphs.js" } }
+</script>
+
+<nav><a href="dynamic.html">Dynamic</a><a href="static.html" aria-current="page">Static</a><a href="demo.html">Demo</a></nav>
+
+<h1>Static — <code>import 'lettrine/static'</code></h1>
+<p class="lede">Glyphs are imported by name, so a bundler keeps only these five and the other
+125 are never emitted. Nothing is fetched, so the ornaments are there with the text. Elements
+name the glyph in the attribute, and you call it yourself.</p>
+
+<article id="prose">
+  <p data-lettrine="A1">Arms and the man I sing, who, forced by fate and haughty Juno's
+  unrelenting hate, expelled and exiled, left the Trojan shore.</p>
+
+  <p data-lettrine="Z4" class="tinted">Zealously the scribe worked through the night, and this
+  ornament is tinted.</p>
+
+  <p data-lettrine="M2" class="reversed tall">Midway upon the journey of our life I found
+  myself within a forest dark, for the straightforward pathway had been lost.</p>
+
+  <p data-lettrine="E3" class="roomy">« Élan » — punctuation and accents behave exactly as
+  they do on the dynamic page.</p>
+
+  <p data-lettrine="K5">Kings and queens. Try changing one of these attributes to a glyph that
+  isn't imported, such as <code>W1</code>, and watch the console.</p>
+</article>
+
+<script type="module">
+  import { lettrine, observe } from 'lettrine/static';
+  import { A1, Z4, M2, E3, K5 } from 'lettrine/glyphs';
+
+  const glyphs = { A1, Z4, M2, E3, K5 };
+
+  await lettrine({ glyphs });
+  observe({ glyphs });          // optional: keeps following the page as it changes
+</script>
