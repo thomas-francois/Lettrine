@@ -1,7 +1,23 @@
 {
   "name": "lettrine",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Drop-cap ornaments from real books, applied to any element",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomas-francois/Lettrine.git"
+  },
+  "homepage": "https://github.com/thomas-francois/Lettrine#readme",
+  "bugs": "https://github.com/thomas-francois/Lettrine/issues",
+  "keywords": [
+    "drop-cap",
+    "dropcap",
+    "lettrine",
+    "initial",
+    "typography",
+    "svg"
+  ],
+  "author": "Thomas FRANCOIS",
+  "license": "MIT",
   "type": "module",
   "main": "src/index.js",
   "exports": {
@@ -14,15 +30,5 @@
   ],
   "sideEffects": [
     "./src/index.js"
-  ],
-  "keywords": [
-    "drop-cap",
-    "dropcap",
-    "lettrine",
-    "initial",
-    "typography",
-    "svg"
-  ],
-  "author": "Thomas FRANCOIS",
-  "license": "MIT"
+  ]
 }
